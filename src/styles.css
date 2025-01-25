@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Custom opacity classes */
+.bg-white-60 {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.bg-white-20 {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.bg-white-16 {
+  background-color: rgba(255, 255, 255, 0.16);
+}
+.bg-white-8 {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.bg-black-60 {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.bg-black-16 {
+  background-color: rgba(0, 0, 0, 0.16);
+}
+.bg-blue-60 {
+  background-color: rgba(105, 111, 251, 0.6);
+}
+.bg-blue-32 {
+  background-color: rgba(105, 111, 251, 0.32);
+}
+.bg-blue-20 {
+  background-color: rgba(105, 111, 251, 0.2);
+}
+.bg-blue-12 {
+  background-color: rgba(105, 111, 251, 0.12);
+}
+.bg-blue-8 {
+  background-color: rgba(105, 111, 251, 0.08);
+}
+.bg-blue-4 {
+  background-color: rgba(105, 111, 251, 0.04);
+}
