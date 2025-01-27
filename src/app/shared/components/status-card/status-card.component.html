@@ -1,0 +1,24 @@
+
+
+
+<div class="bg-white p-6 rounded-lg shadow-lg flex flex-col justify-between">
+  <h3 class="text-lg font-bold text-gray-800">{{ data.title }}</h3>
+  <div class="my-3 text-2xl font-semibold text-gray-900">
+    <span *ngIf="data.unit === 'CURR'">
+      {{ data.value | currency:'USD':'symbol':'1.0-2'}}
+    </span>
+    <span *ngIf="data.unit !== 'CURR'">
+      {{ data.value }}<span *ngIf="data.unit === '%'">%</span>
+    </span>
+  </div>
+  <div class="text-sm text-gray-600">
+    <span class="text-black rounded-md px-1.5 py-1"
+      [ngClass]="{'bg-light-green': data.percentageChange > 0, 'bg-light-red': data.percentageChange < 0}">
+      <i class="fa-solid fa-arrow-up text-xs" *ngIf="data.percentageChange > 0"></i>
+      <i class="fa-solid fa-arrow-down text-xs" *ngIf="data.percentageChange < 0"></i>
+      <span class="text-sm ps-2">{{ getAbsolutePercentageChange }}%</span>
+    </span>
+    <span class="px-2">compared to last month</span>
+  </div>
+</div>
+
