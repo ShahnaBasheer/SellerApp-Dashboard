@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './topbar.component.css'
 })
 export class TopbarComponent {
+  ngDoCheck(){
+    console.log("topbar is working**********");
 
+  }
 }

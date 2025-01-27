@@ -1,0 +1,139 @@
+
+
+
+<div
+  class="flex flex-col space-y-8 text-gray-700 bg-white border-e-2 fixed h-full transition-all duration-75 ease-in-out"
+  [ngClass]="{ 'w-14': !isExpanded, 'w-44': isExpanded }"
+>
+  <div class="mt-5 mb-0 flex justify-center items-center cursor-pointer h-8">
+    <!-- Use ng-template for conditional rendering -->
+    <ng-container *ngIf="isExpanded; else collapsedTemplate">
+      <span class="pr-3 font-semibold text-2xl text-black"> sellerapp </span>
+    </ng-container>
+
+    <!-- The template for when the sidebar is collapsed -->
+    <ng-template #collapsedTemplate>
+      <app-svg-icon
+        [svgClass]="'text-[#010715]'"
+        [width]="'35'"
+        [height]="'26'"
+        [path]="brandIcon"
+      >
+      </app-svg-icon>
+    </ng-template>
+
+    <button
+      class="flex justify-center items-center cursor-pointer"
+      (click)="toggleSidebar()"
+    >
+      <i
+        class="fa-solid fa-arrow-left p-[.1rem] text-[.8rem] rounded border border-1 border-gray-500 hover:bg-gray-100"
+        *ngIf="isExpanded"
+      ></i>
+      <i
+        *ngIf="!isExpanded"
+        class="fa-solid fa-arrow-right p-[.1rem] text-[.8rem] rounded border border-1 border-gray-500 hover:bg-gray-100"
+      ></i>
+    </button>
+
+
+  </div>
+
+  <div class="flex-1 space-y-2">
+    <ng-container *ngFor="let item of menuItems; let i = index">
+      <a
+        class="flex items-center py-0.5 hover:bg-[#696FFB3D] rounded transition-colors group"
+        href="#"
+        [ngClass]="{
+          'justify-center mx-3': !isExpanded,
+          'justify-start mx-[.55rem] px-2': isExpanded
+        }"
+      >
+        <div class="pt-[.2rem]">
+          <app-svg-icon
+            [svgClass]="
+              'text-[rgba(0,0,0,0.6)] group-hover:text-blue transition-colors'
+            "
+            [width]="'21'"
+            [height]="'21'"
+            [path]="item.path"
+          ></app-svg-icon>
+        </div>
+
+        <span
+          class="mx-3 font-semibold  text-black-60 group-hover:text-blue"
+          *ngIf="isExpanded"
+        >
+          {{ item.name }}
+        </span>
+      </a>
+
+      <!-- Add <hr> after the first 4 items, then after every 3rd item -->
+      <hr
+        *ngIf="i === 3 || (i >= 3 && i % 3 === 0)"
+        class="border-gray-300 my-2"
+      />
+    </ng-container>
+  </div>
+
+  <div class="flex items-center mx-auto py-5">
+    <p *ngIf="isExpanded" class="text-black-60 text-sm pe-3">Dark</p>
+    <label for="toggle-theme" class="flex items-center cursor-pointer relative">
+      <!-- Hidden checkbox input -->
+      <input
+        type="checkbox"
+        id="toggle-theme"
+        class="sr-only"
+        [(ngModel)]="isChecked"
+        (change)="onToggleTheme()"
+      />
+
+      <!-- Custom toggle background -->
+      <div
+        class="toggle-bg border-2 bg-blue border-blue h-[1.4rem] w-[2.8rem] rounded-full transition-all duration-300 relative"
+      >
+        <!-- FontAwesome icons (on the background) -->
+        <span
+          class="absolute left-[0.2rem] top-[.18rem] transition-opacity duration-300"
+          [ngClass]="{
+            'opacity-0': !isChecked,
+            'opacity-100': isChecked
+          }"
+        >
+          <app-svg-icon
+            [svgClass]="'text-yellow'"
+            [width]="'21'"
+            [height]="'21'"
+            [path]="lightIcon"
+          >
+          </app-svg-icon>
+        </span>
+        <span
+          class="absolute left-[1.6rem] top-1 transition-opacity duration-300"
+          [ngClass]="{
+            'opacity-100': !isChecked,
+            'opacity-0': isChecked
+          }"
+        >
+          <app-svg-icon
+            [svgClass]="'text-yellow'"
+            [width]="'21'"
+            [height]="'21'"
+            [path]="darkIcon"
+          >
+          </app-svg-icon>
+        </span>
+
+        <!-- The circular slider -->
+        <div
+          class="dot h-[1.2rem] w-[1.2rem] bg-white rounded-full absolute top-[.03rem] transition-all duration-300"
+          [ngClass]="{
+            'translate-x-5 left-[.19rem]': isChecked,
+            'translate-x-0': !isChecked
+          }"
+        ></div>
+      </div>
+    </label>
+    <p *ngIf="isExpanded" class="text-black-60 text-sm ps-3">Light</p>
+  </div>
+</div>
