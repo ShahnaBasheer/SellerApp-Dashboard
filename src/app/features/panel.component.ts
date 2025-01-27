@@ -6,7 +6,7 @@ import { TopbarComponent } from "../shared/components/topbar/topbar.component";
 
 @Component({
   selector: 'app-panel',
-  imports: [RouterOutlet, SidebarComponent, CommonModule ],
+  imports: [RouterOutlet, SidebarComponent, CommonModule, TopbarComponent],
   templateUrl: './panel.component.html',
   styleUrl: './panel.component.css'
 })

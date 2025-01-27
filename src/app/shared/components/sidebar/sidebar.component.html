@@ -2,7 +2,7 @@
 
 
 <div
-  class="flex flex-col space-y-8 text-gray-700 bg-white border-e-2 fixed h-full transition-all duration-75 ease-in-out"
+  class="flex flex-col space-y-8 bg-white border-e-2 border-black-16 fixed h-full transition-all duration-100 ease-in-out"
   [ngClass]="{ 'w-14': !isExpanded, 'w-44': isExpanded }"
 >
   <div class="mt-5 mb-0 flex justify-center items-center cursor-pointer h-8">
@@ -27,12 +27,12 @@
       (click)="toggleSidebar()"
     >
       <i
-        class="fa-solid fa-arrow-left p-[.1rem] text-[.8rem] rounded border border-1 border-gray-500 hover:bg-gray-100"
+        class="fa-solid fa-arrow-left p-[.1rem] text-[.8rem] rounded border border-gray-500 hover:bg-gray-100"
         *ngIf="isExpanded"
       ></i>
       <i
         *ngIf="!isExpanded"
-        class="fa-solid fa-arrow-right p-[.1rem] text-[.8rem] rounded border border-1 border-gray-500 hover:bg-gray-100"
+        class="fa-solid fa-arrow-right p-[.1rem] text-[.8rem] rounded border border-gray-500 hover:bg-gray-100"
       ></i>
     </button>
 
@@ -51,9 +51,7 @@
       >
         <div class="pt-[.2rem]">
           <app-svg-icon
-            [svgClass]="
-              'text-[rgba(0,0,0,0.6)] group-hover:text-blue transition-colors'
-            "
+            [svgClass]="'text-[rgba(0,0,0,0.6)] group-hover:text-blue transition-colors'"
             [width]="'21'"
             [height]="'21'"
             [path]="item.path"
