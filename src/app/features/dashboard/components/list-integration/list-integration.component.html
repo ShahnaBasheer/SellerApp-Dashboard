@@ -1,0 +1,51 @@
+<app-card-header-wrapper [title]="'List Integration'">
+  <div class="block w-full overflow-x-auto mb-9" content-body>
+    <table class="min-w-full bg-transparent border-collapse">
+      <thead>
+        <tr class="rounded-md bg-blue-8">
+          <th class="px-4 py-3 text-xs font-semibold text-left text-gray-500 capitalize border-l-0 border-r-0 whitespace-nowrap rounded-tl-md">
+            <input type="checkbox" class="form-checkbox text-blue-600">
+          </th>
+          <th class="px-4 py-3 text-sm font-semibold text-left text-gray-500 capitalize border-l-0 border-r-0 whitespace-nowrap">
+            Application
+          </th>
+          <th class="px-4 py-3 text-sm font-semibold text-left text-gray-500 capitalize border-l-0 border-r-0 whitespace-nowrap">
+            Type
+          </th>
+          <th class="px-4 py-3 text-sm font-semibold text-left text-gray-500 capitalize border-l-0 border-r-0 whitespace-nowrap">
+            Rate
+          </th>
+          <th class="px-4 py-3 text-xs font-semibold text-left text-gray-500 capitalize border-l-0 border-r-0 whitespace-nowrap rounded-tr-md">
+            Profit
+          </th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-100">
+        <tr class="text-gray-500" *ngFor="let item of tableData">
+          <td class="border-t-0 px-4 py-3 align-middle text-sm whitespace-nowrap">
+            <input type="checkbox" class="form-checkbox text-blue-600">
+          </td>
+          <td class="border-t-0 px-4 py-3 align-middle text-sm text-left whitespace-nowrap">
+            {{ item.application }}
+          </td>
+          <td class="border-t-0 px-4 py-3 align-middle text-sm text-left whitespace-nowrap">
+            {{ item.type }}
+          </td>
+          <td class="border-t-0 px-4 py-3 align-middle text-xs text-left whitespace-nowrap">
+            <div class="flex items-center">
+              <div class="relative w-full">
+                <div class="w-full bg-blue-12 rounded-sm h-2">
+                  <div class="bg-blue h-2 rounded-sm" [style.width]="item.rate + '%'"></div>
+                </div>
+              </div>
+              <span class="ml-2 text-xs font-medium text-gray-600">{{ item.rate }}%</span>
+            </div>
+          </td>
+          <td class="border-t-0 px-4 py-3 align-middle text-xs font-medium text-gray-900 text-left whitespace-nowrap">
+            {{ item.profit | number: "1.0-2" }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</app-card-header-wrapper>
