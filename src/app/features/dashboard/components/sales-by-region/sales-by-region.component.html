@@ -1,0 +1,15 @@
+
+
+<app-card-header-wrapper [title]="'Sales by Region'">
+
+  <div class="w-full h-[215px]" content-body>
+    <!-- <canvas baseChart
+            id="sales-by-region"
+            [data]="radarChartData"
+            [options]="radarChartOptions"
+            [type]="'radar'"
+            class="w-full h-full cursor-none ">
+    </canvas> -->
+    <canvas baseChart #salesByRegionChart class="w-full mx-auto h-full cursor-pointer" id="sales-by-region"></canvas>
+  </div>
+</app-card-header-wrapper>

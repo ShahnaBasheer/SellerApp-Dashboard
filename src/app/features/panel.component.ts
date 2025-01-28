@@ -19,8 +19,4 @@ export class PanelComponent {
   toggleExpand(value: boolean){
      this.isExpanded = value;
   }
-
-  ngDoCheck(){
-   console.log("panel working")
-  }
 }

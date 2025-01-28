@@ -29,14 +29,15 @@
   </div>
 
   <div class="max-w-[800px] h-[200px]" content-body>
-    <canvas
-      baseChart
+    <!-- <canvas baseChart #salesOverviewChart
+      id="sales-overview-chart"
       [data]="lineChartData"
       [options]="lineChartOptions"
       [type]="'line'"
-      class="w-full h-full cursor-none"
+      class="w-full h-full cursor-default"
     >
-    </canvas>
+    </canvas> -->
+    <canvas baseChart #salesOverviewChart class="w-full h-full cursor-none" id="sales-over-view"></canvas>
   </div>
 
 

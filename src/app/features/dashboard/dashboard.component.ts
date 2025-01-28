@@ -1,14 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { statusCardData } from '../../core/models/statusCard.modal';
-import { currency } from '../../core/enums/currency.enum';
 import { StatusCardComponent } from './components/status-card/status-card.component';
 import { SalesOverviewComponent } from "./components/sales-overview/sales-overview.component";
+import { SalesByRegionComponent } from "./components/sales-by-region/sales-by-region.component";
 
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule, StatusCardComponent, SalesOverviewComponent],
+  imports: [CommonModule, StatusCardComponent, SalesOverviewComponent, SalesByRegionComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
