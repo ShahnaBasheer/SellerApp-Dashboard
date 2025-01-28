@@ -4,11 +4,12 @@ import { statusCardData } from '../../core/models/statusCard.modal';
 import { StatusCardComponent } from './components/status-card/status-card.component';
 import { SalesOverviewComponent } from "./components/sales-overview/sales-overview.component";
 import { SalesByRegionComponent } from "./components/sales-by-region/sales-by-region.component";
+import { RegisteredUsersComponent } from "./components/registered-users/registered-users.component";
 
 
 @Component({
   selector: 'app-dashboard',
-  imports: [CommonModule, StatusCardComponent, SalesOverviewComponent, SalesByRegionComponent],
+  imports: [CommonModule, StatusCardComponent, SalesOverviewComponent, SalesByRegionComponent, RegisteredUsersComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush

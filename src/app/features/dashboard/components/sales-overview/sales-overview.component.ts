@@ -160,9 +160,10 @@ export class SalesOverviewComponent implements OnInit {
   ngAfterViewInit(): void {
     const ctx = this.canvasRef.nativeElement;
 
-    // if (this.salesOverviewChart) {
-    //   this.salesOverviewChart.destroy(); // Destroy the existing chart
-    // }
+    if (this.salesOverviewChart) {
+      this.salesOverviewChart.destroy(); // Destroy the existing chart
+    }
+
     if (ctx) {
       this.salesOverviewChart = new Chart(ctx, {
         type: 'line',

@@ -1,0 +1,70 @@
+
+<app-card-header-wrapper [title]="'Registered Users'">
+  <div class="w-full h-full text-center relative" content-body>
+    <!-- Container for the gauge chart -->
+    <ngx-gauge
+      [value]="currentUsersPercentage"
+      [min]="0"
+      [max]="100"
+      [type]="'arch'"
+      [thick]="23"
+      [foregroundColor]="'#696FFB'"
+      [backgroundColor]="'#696FFB99'"
+      [size]="200"
+      class="w-full mx-auto h-full cursor-pointer"
+    >
+      <ngx-gauge-prepend>
+        <p>
+          <svg
+          class="mx-auto"
+          width="28"
+          height="29"
+          viewBox="0 0 28 29"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect
+            y="0.5"
+            width="28"
+            height="28"
+            rx="14"
+            fill="blue"
+            fill-opacity="0.1"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M15.1225 7.76418C15.8094 7.51399 16.548 7.43992 17.2709 7.54874C17.9939 7.65755 18.678 7.94577 19.2608 8.38708C19.8436 8.82838 20.3065 9.4087 20.6073 10.075C20.9081 10.7413 21.0371 11.4724 20.9825 12.2014C20.928 12.9304 20.6917 13.6341 20.2951 14.2482C20.0967 14.5555 19.8613 14.8355 19.5952 15.0823C21.9319 16.0426 23.6199 18.1052 23.6199 20.625C23.6199 21.1083 23.2281 21.5 22.7449 21.5C22.2616 21.5 21.8699 21.1083 21.8699 20.625C21.8699 18.3302 19.6508 16.25 16.6199 16.25C16.5062 16.25 16.3831 16.2448 16.2528 16.2332C17.5461 17.3273 18.3699 18.8646 18.3699 20.6249C18.3699 21.1082 17.9782 21.4999 17.4949 21.4999C17.0117 21.4999 16.6199 21.1082 16.6199 20.6249C16.6199 18.3302 14.4009 16.25 11.37 16.25C8.33905 16.25 6.11999 18.3302 6.11999 20.6249C6.11999 21.1082 5.72824 21.4999 5.24499 21.4999C4.76174 21.4999 4.37 21.1082 4.37 20.6249C4.37 18.1052 6.05792 16.0426 8.39457 15.0823C7.53376 14.2833 6.99511 13.1421 6.99511 11.875C6.99511 9.45875 8.95385 7.5 11.3701 7.5C12.355 7.5 13.2639 7.82547 13.9951 8.37472C14.3376 8.11791 14.7172 7.91178 15.1225 7.76418ZM15.1418 14.0932C15.639 14.3846 16.207 14.4982 16.6102 14.5C16.6134 14.5 16.6167 14.5 16.6199 14.5C17.0585 14.4999 17.4902 14.39 17.8753 14.1802C18.2605 13.9704 18.587 13.6674 18.825 13.2989C19.0629 12.9305 19.2047 12.5082 19.2374 12.0708C19.2702 11.6334 19.1927 11.1948 19.0123 10.795C18.8318 10.3952 18.5541 10.047 18.2044 9.78224C17.8547 9.51746 17.4442 9.34452 17.0105 9.27924C16.5767 9.21395 16.1335 9.25839 15.7214 9.4085C15.5236 9.48054 15.336 9.57582 15.1623 9.6918C15.533 10.3343 15.7451 11.0799 15.7451 11.875C15.7451 12.6846 15.5252 13.4428 15.1418 14.0932ZM13.3448 10.1455L13.3319 10.1308C12.8511 9.5904 12.1503 9.24999 11.3701 9.24999C9.92035 9.24999 8.7451 10.4252 8.7451 11.875C8.7451 13.3247 9.92035 14.5 11.3701 14.5C12.8198 14.5 13.9951 13.3247 13.9951 11.875C13.9951 11.2125 13.7497 10.6074 13.3448 10.1455Z"
+            fill="#696FFB"
+          />
+        </svg>
+        </p>
+        <p class="text-2xl font-extrabold">{{ basicUsers + premiumUsers | number : "1.0-2" }}</p>
+        <p class="block text-sm text-gray-500 my-0">Total Users</p>
+      </ngx-gauge-prepend>
+      <ngx-gauge-value></ngx-gauge-value>
+    </ngx-gauge>
+
+    <div class="flex justify-between items-center px-0">
+      <!-- Left side -->
+      <div class="flex items-center">
+        <div class="w-1 h-6 bg-blue mx-4"></div> <!-- Vertical line -->
+        <div class="text-center">
+          <div class="text-sm text-black">{{ premiumUsers }}</div>
+          <div class="font-bold text-sm text-black-60">Premium User</div>
+        </div>
+      </div>
+
+      <!-- Right side -->
+      <div class="flex items-center">
+        <div class="text-center">
+          <div class="text-sm text-black">{{ basicUsers }}</div>
+          <div class="font-bold text-sm text-black-60">Base User</div>
+        </div>
+        <div class="w-1 h-6 bg-blue-60 mx-4"></div> <!-- Vertical line -->
+      </div>
+    </div>
+
+  </div>
+</app-card-header-wrapper>
+
