@@ -1,0 +1,45 @@
+
+<app-card-header-wrapper [title]="'Sales Overview'">
+  <div class="flex items-center justify-between mt-3 space-x-6">
+    <!-- Total Revenue -->
+    <div class="space-y-1">
+      <div class="flex items-center space-x-1">
+        <div class="w-2 h-2 bg-blue rounded-full"></div>
+        <span class="text-gray-700 font-medium text-sm">Total Revenue</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-black font-semibold text-sm">{{
+          totalRevenue | currency : "USD" : "symbol" : "1.0-2"
+        }}</span>
+      </div>
+    </div>
+
+    <!-- Total Target -->
+    <div class="space-y-1">
+      <div class="flex items-center space-x-1">
+        <div class="w-2 h-2 bg-orange rounded-full"></div>
+        <span class="text-gray-700 font-medium text-sm">Total Target</span>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="text-black font-semibold text-sm">{{
+          totalTarget | currency : "USD" : "symbol" : "1.0-2"
+        }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-[800px] h-[200px]" content-body>
+    <canvas
+      baseChart
+      [data]="lineChartData"
+      [options]="lineChartOptions"
+      [type]="'line'"
+      class="w-full h-full cursor-none"
+    >
+    </canvas>
+  </div>
+
+
+</app-card-header-wrapper>
+
+

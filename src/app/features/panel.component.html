@@ -1,14 +1,14 @@
 
 
 
-<div class="flex h-screen">
+<div class="flex h-full bg-blue-4">
   <app-sidebar (SliderTogglerEmitter)="toggleExpand($event)"></app-sidebar>
   <div
-    class="transition-all duration-100 bg-blue-4 w-full"
+    class="transition-all duration-100 w-full"
     [ngClass]="{'ml-44': isExpanded , 'ml-14': !isExpanded}"
   >
     <app-topbar></app-topbar>
-    <div class="p-6">
+    <div class="p-6 mt-14">
       <router-outlet></router-outlet>
     </div>
 
