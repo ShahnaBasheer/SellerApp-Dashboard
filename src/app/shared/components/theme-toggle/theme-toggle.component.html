@@ -1,0 +1,57 @@
+
+
+<label for="toggle-theme" class="flex items-center cursor-pointer relative">
+  <!-- Hidden checkbox input -->
+  <input
+    type="checkbox"
+    id="toggle-theme"
+    class="sr-only"
+    (change)="onToggleTheme()"
+  />
+`
+  <!-- Custom toggle background -->
+  <div
+    class="toggle-bg border-2 bg-blue border-blue h-[1.4rem] w-[2.8rem] rounded-full transition-all duration-300 relative"
+  >
+    <!-- FontAwesome icons (on the background) -->
+    <span
+      class="absolute left-[0.2rem] top-[.18rem] transition-opacity duration-300"
+      [ngClass]="{
+        'opacity-0': !isChecked,
+        'opacity-100': isChecked
+      }"
+    >
+      <app-svg-icon
+        [svgClass]="'text-yellow'"
+        [width]="'21'"
+        [height]="'21'"
+        [path]="lightIcon"
+      >
+      </app-svg-icon>
+    </span>
+    <span
+      class="absolute left-[1.6rem] top-1 transition-opacity duration-300"
+      [ngClass]="{
+        'opacity-100': !isChecked,
+        'opacity-0': isChecked
+      }"
+    >
+      <app-svg-icon
+        [svgClass]="'text-yellow'"
+        [width]="'21'"
+        [height]="'21'"
+        [path]="darkIcon"
+      >
+      </app-svg-icon>
+    </span>
+
+    <!-- The circular slider -->
+    <div
+      class="dot h-[1.2rem] w-[1.2rem] bg-white rounded-full absolute top-[.03rem] transition-all duration-300"
+      [ngClass]="{
+        'translate-x-5 left-[.19rem]': isChecked,
+        'translate-x-0': !isChecked
+      }"
+    ></div>
+  </div>
+</label>

@@ -1,7 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { CommonModule, CurrencyPipe } from '@angular/common';
-import { statusCardData } from '../../../../core/models/statusCard.modal';
 import { CardHeaderWrapperComponent } from '../../../../shared/components/card-header-wrapper/card-header-wrapper.component';
+import { statusCardData } from '../../../../core/models/dashboard.modal';
+import { Store } from '@ngrx/store';
+import { Currency } from '../../../../core/enums/country.enum';
 
 @Component({
   selector: 'app-status-card',
@@ -12,6 +14,7 @@ import { CardHeaderWrapperComponent } from '../../../../shared/components/card-h
 
 
 export class StatusCardComponent {
+  @Input({required: true}) CURR!: Currency;
   @Input({required: true}) data!: statusCardData;
 
   get getAbsolutePercentageChange(): number {

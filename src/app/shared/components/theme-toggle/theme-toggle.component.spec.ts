@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SalesOverviewComponent } from './sales-overview.component';
+import { ThemeToggleComponent } from './theme-toggle.component';
 
-describe('SalesOverviewComponent', () => {
-  let component: SalesOverviewComponent;
-  let fixture: ComponentFixture<SalesOverviewComponent>;
+describe('ThemeToggleComponent', () => {
+  let component: ThemeToggleComponent;
+  let fixture: ComponentFixture<ThemeToggleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SalesOverviewComponent]
+      imports: [ThemeToggleComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SalesOverviewComponent);
+    fixture = TestBed.createComponent(ThemeToggleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

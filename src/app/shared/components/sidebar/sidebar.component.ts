@@ -3,11 +3,12 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { SvgIconComponent } from '../svg-icon/svg-icon.component';
 import { icons } from '../../../core/enums/icons.enums';
 import { FormsModule } from '@angular/forms'
+import { ThemeToggleComponent } from "../theme-toggle/theme-toggle.component";
 
 
 @Component({
   selector: 'app-sidebar',
-  imports: [ CommonModule, SvgIconComponent , FormsModule],
+  imports: [CommonModule, SvgIconComponent, FormsModule, ThemeToggleComponent],
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
 
@@ -16,10 +17,7 @@ import { FormsModule } from '@angular/forms'
 
 export class SidebarComponent {
   brandIcon = icons.Brand;
-  lightIcon = icons.LightTheme;
-  darkIcon = icons.DarkTheme;
-  isChecked: boolean = true;
-  isExpanded = false;
+  isExpanded: boolean = false;
   @Output() SliderTogglerEmitter = new EventEmitter<boolean>();
 
   menuItems =
@@ -87,9 +85,6 @@ export class SidebarComponent {
     this.SliderTogglerEmitter.emit(this.isExpanded);
   }
 
-   onToggleTheme() {
-      console.log('Toggled to:', this.isChecked ? 'checked' : 'unchecked');
-    }
 }
 
 

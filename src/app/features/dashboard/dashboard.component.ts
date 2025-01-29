@@ -1,11 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { statusCardData } from '../../core/models/statusCard.modal';
+import { Component, inject, OnInit } from '@angular/core';
 import { StatusCardComponent } from './components/status-card/status-card.component';
 import { SalesOverviewComponent } from "./components/sales-overview/sales-overview.component";
 import { SalesByRegionComponent } from "./components/sales-by-region/sales-by-region.component";
 import { RegisteredUsersComponent } from "./components/registered-users/registered-users.component";
 import { ListIntegrationComponent } from "./components/list-integration/list-integration.component";
+import { Store } from '@ngrx/store';
+import { selectDashboardData, selectSelectedCountry  } from './store/dashboard.selectors';
+import { statusCardData } from '../../core/models/dashboard.modal';
+import { Currency } from '../../core/enums/country.enum';
 
 
 @Component({
@@ -13,19 +16,23 @@ import { ListIntegrationComponent } from "./components/list-integration/list-int
   imports: [CommonModule, StatusCardComponent, SalesOverviewComponent, SalesByRegionComponent, RegisteredUsersComponent, ListIntegrationComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
+  private store = inject(Store);
+  CURR!: Currency;
+  statusCardData: statusCardData[] = [];
 
-  statusCardData: statusCardData[] = [
-    { title: 'Total Income', value: 12000, percentageChange: 10, unit: 'CURR' },
-    { title: 'Profit', value: 7000, percentageChange: -3, unit: 'CURR' },
-    { title: 'Total Views', value: 250000, percentageChange: 5, unit: 'VIEWS' },
-    { title: 'Conversion Rate', value: 2.5, percentageChange: 0.5, unit: '%' }
-  ];
+  ngOnInit(): void {
+     this.store.select(selectDashboardData).subscribe((data) => {
+       this.statusCardData = data?.stats ?? [];
+     })
 
-  ngDoCheck(){
-    console.log("dashboard working")
-   }
+     this.store.select(selectSelectedCountry).subscribe((data: string) => {
+      this.CURR = Currency[data.toUpperCase() as keyof typeof Currency];
+      console.log(this.CURR);
+    })
+
+  }
+
 }

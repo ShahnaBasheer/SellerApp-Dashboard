@@ -1,25 +1,25 @@
 
 
-<div class="py-6">
+<div class="">
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-4">
-    <app-status-card *ngFor="let item of statusCardData" [data]="item"></app-status-card>
+    <app-status-card *ngFor="let item of statusCardData" [data]="item" [CURR]="CURR"></app-status-card>
   </div>
 
   <div class="grid grid-cols-12 gap-4">
-    <div class="col-span-8">
+    <div class="col-span-12 lg:col-span-8">
         <app-sales-overview></app-sales-overview>
     </div>
-    <div class="col-span-4">
+    <div class="col-span-12 lg:col-span-4">
         <app-sales-by-region></app-sales-by-region>
     </div>
   </div>
 
   <div class="grid grid-cols-12 gap-4 my-4">
-    <div class="col-span-4">
+    <div class="col-span-12 lg:col-span-4">
         <app-registered-users></app-registered-users>
     </div>
-    <div class="col-span-8">
-        <app-list-integration></app-list-integration>
+    <div class="col-span-12 lg:col-span-8">
+        <app-list-integration [CURR]="CURR"></app-list-integration>
     </div>
   </div>
 </div>

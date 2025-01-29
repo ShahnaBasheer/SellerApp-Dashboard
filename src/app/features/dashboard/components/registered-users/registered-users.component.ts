@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CardHeaderWrapperComponent } from '../../../../shared/components/card-header-wrapper/card-header-wrapper.component';
 import { NgxGaugeModule } from 'ngx-gauge';
 import { CommonModule } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { selectDashboardData } from '../../store/dashboard.selectors';
 
 @Component({
   selector: 'app-registered-users',
@@ -10,11 +12,22 @@ import { CommonModule } from '@angular/common';
   styleUrl: './registered-users.component.css'
 })
 
-export class RegisteredUsersComponent {
-  basicUsers = 597; // Example total users
-  premiumUsers = 2504; // Example number of premium users
+export class RegisteredUsersComponent implements OnInit{
+  basicUsers = 597;
+  premiumUsers = 2504;
 
-  // Calculate the percentage of Premium Users
+  private store: Store = inject(Store);
+
+
+  ngOnInit(): void {
+    this.store.select(selectDashboardData).subscribe(data => {
+      if(data){
+        this.basicUsers = data.registeredUsers.basic;
+        this.premiumUsers = data.registeredUsers.premium;
+      }
+    })
+  }
+
   get currentUsersPercentage() {
     return (this.premiumUsers / (this.basicUsers + this.premiumUsers)) * 100;
   }

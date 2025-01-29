@@ -1,6 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
 import { CardHeaderWrapperComponent } from "../../../../shared/components/card-header-wrapper/card-header-wrapper.component";
 import { CommonModule } from '@angular/common';
+import { Integration } from '../../../../core/models/dashboard.modal';
+import { Store } from '@ngrx/store';
+import { selectDashboardData } from '../../store/dashboard.selectors';
+import { Currency } from '../../../../core/enums/country.enum';
 
 @Component({
   selector: 'app-list-integration',
@@ -10,25 +14,13 @@ import { CommonModule } from '@angular/common';
 })
 
 export class ListIntegrationComponent {
-  tableData = [
-    {
-      application: 'Stripe',
-      type: 'Finance',
-      rate: 45,
-      profit: 12345
-    },
-    {
-      application: 'Zapier',
-      type: 'CRM',
-      rate: 20,
-      profit: 4567
-    },
-    {
-      application: 'Shopify',
-      type: 'Marketplace',
-      rate: 60,
-      profit: 9234
-    }
-  ];
+  private store: Store = inject(Store);
+  @Input({ required: true }) CURR!: Currency;
+  tableData: Integration[] = []
 
+  ngOnInit(): void {
+     this.store.select(selectDashboardData).subscribe(data => {
+        this.tableData = data?.integrations ?? []
+     })
+  }
 }

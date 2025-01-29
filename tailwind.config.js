@@ -1,9 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
       colors: {
+        'bg-dark': '#1F214A',
+        'text-dark': '#FFFFFF',
+        'brdr-dark': '#1F214A',
+
+
         //black variations
         "black-60": "rgba(0, 0, 0, 0.6)",
         "black-16": "rgba(0, 0, 0, 0.16)",

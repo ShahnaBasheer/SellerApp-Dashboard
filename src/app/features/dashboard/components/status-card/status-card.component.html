@@ -1,16 +1,17 @@
 
-<app-card-header-wrapper [title]="data.title">
+
+<app-card-header-wrapper [title]="data.title" *ngIf="data">
   <div content-body>
-    <div class="mb-3 text-2xl font-semibold text-gray-900">
+    <div class="mb-3 text-2xl font-semibold text-gray-900 dark:text-text-dark">
       <span *ngIf="data.unit === 'CURR'">
-        {{ data.value | currency:'USD':'symbol':'1.0-2'}}
+        {{ +data.value | currency: CURR :'symbol':'1.0-2'}}
       </span>
       <span *ngIf="data.unit !== 'CURR'">
         {{ data.value }}<span *ngIf="data.unit === '%'">%</span>
       </span>
     </div>
-    <div class="text-sm text-gray-600">
-      <span class="text-black rounded-md px-1.5 py-1"
+    <div class="text-sm text-gray-600 ">
+      <span class="text-black  rounded-md px-1.5 py-1"
         [ngClass]="{'bg-light-green': data.percentageChange > 0, 'bg-light-red': data.percentageChange < 0}">
         <i class="fa-solid fa-arrow-up text-xs" *ngIf="data.percentageChange > 0"></i>
         <i class="fa-solid fa-arrow-down text-xs" *ngIf="data.percentageChange < 0"></i>
