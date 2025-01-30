@@ -19,6 +19,6 @@ export class AppComponent {
   isLoading$!: Observable<boolean>;
 
 ngOnInit(): void {
-    this.isLoading$ = this.store.select(state => state.loading);
+    this.isLoading$ = this.store.select(selectLoader);
   }
 }
