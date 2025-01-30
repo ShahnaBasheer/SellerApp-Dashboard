@@ -1,13 +1,11 @@
 import { DashboardState } from '../../features/dashboard/store/dashboard.state';
-import { dashboardReducer } from './../../features/dashboard/store/dashboard.reducers';
 
-
-export interface AppState {
-  dashboard: DashboardState;
+export interface AppStateSlice {
+  selectedCountry: string;
 }
 
-
-export const appReducer = {
-  dashboard: dashboardReducer,
+export interface AppState {
+  app: AppStateSlice;
+  dashboard: DashboardState;
 }
 

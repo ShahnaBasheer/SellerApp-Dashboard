@@ -2,7 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { ClickOutsideDirective } from '../../directives/click-outside.directive';
 import { Store } from '@ngrx/store';
-import { setSelectedCountry } from '../../../features/dashboard/store/dashboard.actions';
+import { setSelectedCountry } from '../../../core/state/app.action';
+import { Country } from '../../../core/enums/country.enum';
+
 
 @Component({
   selector: 'app-topbar',
@@ -13,6 +15,7 @@ import { setSelectedCountry } from '../../../features/dashboard/store/dashboard.
 
 export class TopbarComponent implements OnInit{
   private store = inject(Store);
+  selectedCountry!: { name: string, flag: string};
 
   countries = [
     { name: 'USA', flag: 'https://flagcdn.com/w40/us.png' },
@@ -20,13 +23,12 @@ export class TopbarComponent implements OnInit{
     { name: 'UK', flag: 'https://flagcdn.com/w40/gb.png' },
     { name: 'Canada', flag: 'https://flagcdn.com/w40/ca.png' },
   ];
-
-  // Store the currently selected country
-  selectedCountry = this.countries[0]; // Default selected country
   isOpen = false; // Control the visibility of the dropdown
 
   ngOnInit(): void{
-      this.store.dispatch(setSelectedCountry({ country: this.selectedCountry.name }))
+      const storedCountry = localStorage.getItem('selectedCountry') || Country.USA;
+      this.selectedCountry = this.countries.find(c => c.name === storedCountry) || this.countries[0];
+      this.store.dispatch(setSelectedCountry({ country: storedCountry}))
   }
 
   // Select a country

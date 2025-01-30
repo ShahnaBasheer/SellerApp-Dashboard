@@ -9,10 +9,6 @@ import * as DashboardActions  from './dashboard.actions'
 
 export const dashboardReducer = createReducer(
   initialState,
-  on(DashboardActions.setSelectedCountry, (state, { country }) => ({
-    ...state,
-    selectedCountry: country
-  })),
   on(DashboardActions.loadDashboardData, (state) => ({
     ...state,
     loading: true

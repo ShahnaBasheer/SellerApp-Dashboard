@@ -21,10 +21,12 @@
 
         <!-- Dropdown options (visible when isOpen is true) -->
         <div *ngIf="isOpen" class="absolute left-0 right-0 z-[1000] mt-1 dark:border-0 bg-white dark:text-gray-400 dark:bg-[#212529] text-[#010715] border rounded-lg shadow-lg text-sm">
-          <div *ngFor="let country of countries" (click)="selectCountry(country)" class="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-100">
-            <img [src]="country.flag" [alt]="country.name + '_flag'" class="w-5 h-5 rounded-full mr-2" />
-            {{ country.name }}
-          </div>
+          <ng-container  *ngFor="let country of countries">
+            <div *ngIf="country.name !== selectedCountry.name" (click)="selectCountry(country)" class="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-100">
+              <img [src]="country.flag" [alt]="country.name + '_flag'" class="w-5 h-5 rounded-full mr-2" />
+              {{ country.name }}
+            </div>
+          </ng-container>
         </div>
 
         <!-- Dropdown arrow icon -->

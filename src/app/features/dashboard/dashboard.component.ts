@@ -6,9 +6,11 @@ import { SalesByRegionComponent } from "./components/sales-by-region/sales-by-re
 import { RegisteredUsersComponent } from "./components/registered-users/registered-users.component";
 import { ListIntegrationComponent } from "./components/list-integration/list-integration.component";
 import { Store } from '@ngrx/store';
-import { selectDashboardData, selectSelectedCountry  } from './store/dashboard.selectors';
+import { selectDashboardData } from './store/dashboard.selectors';
 import { statusCardData } from '../../core/models/dashboard.modal';
 import { Currency } from '../../core/enums/country.enum';
+import { selectedCountry } from '../../core/state/app.selectors';
+import { loadDashboardData } from './store/dashboard.actions';
 
 
 @Component({
@@ -28,9 +30,11 @@ export class DashboardComponent implements OnInit{
        this.statusCardData = data?.stats ?? [];
      })
 
-     this.store.select(selectSelectedCountry).subscribe((data: string) => {
+     this.store.select(selectedCountry).subscribe((data: string) => {
       this.CURR = Currency[data.toUpperCase() as keyof typeof Currency];
       console.log(this.CURR);
+      this.store.dispatch(loadDashboardData({ country: data  }))
+
     })
 
   }

@@ -19,7 +19,7 @@ export class DashboardEffects {
 
   loadDashboardData$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(DashboardActions.setSelectedCountry),
+      ofType(DashboardActions.loadDashboardData),
       switchMap(({ country }) =>
         this.dashboardService.getDashboardData(country).pipe(
           map(data => DashboardActions.loadDashboardDataSuccess({ data })),

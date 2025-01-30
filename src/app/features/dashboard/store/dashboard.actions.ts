@@ -4,11 +4,6 @@ import { createAction, props } from '@ngrx/store';
 import { DashboardData } from '../../../core/models/dashboard.modal';
 
 
-export const setSelectedCountry = createAction(
-  '[Dashboard] Set Selected Country',
-  props<{ country: string }>()
-);
-
 export const loadDashboardData = createAction(
   '[Dashboard] Load Dashboard Data',
   props<{ country: string }>()

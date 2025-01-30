@@ -7,7 +7,9 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { DashboardEffects } from './features/dashboard/store/dashboard.effects';
-import { appReducer } from './core/state/app.state';
+import { appReducer } from './core/state/app.reducer';
+import { AppSliceEffects } from './core/state/app.effects';
+
 
 
 export const appConfig: ApplicationConfig = {
@@ -16,7 +18,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideCharts(withDefaultRegisterables()),
     provideStore(appReducer),
-    provideEffects([ DashboardEffects ]),
+    provideEffects([  AppSliceEffects, DashboardEffects ]),
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
     provideZoneChangeDetection({ eventCoalescing: true }),
   ]
