@@ -15,5 +15,6 @@ export class AppSliceEffects {
     this.actions$.pipe(
       ofType(AppSliceActions.setSelectedCountry),
       tap(({ country }) => localStorage.setItem('selectedCountry' , country) )
-    ), { dispatch: false });
+    ), { dispatch: false }
+  );
 }

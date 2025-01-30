@@ -27,9 +27,9 @@
       </div>
     </div>
   </div>
-  <div class="max-w-[800px] h-[200px]" content-body  *ngIf="isChartLoaded">
+  <div class="max-w-[800px] lg:h-[200px] h-auto" content-body  *ngIf="isChartLoaded">
     <canvas baseChart #salesOverviewChart
-       class="w-full h-full cursor-none" id="sales-over-view"></canvas>
+       class="w-fit h-full cursor-none" id="sales-over-view"></canvas>
   </div>
 
 

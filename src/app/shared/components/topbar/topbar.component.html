@@ -1,48 +1,84 @@
-
-
-<nav class="border-b-[1px] border-black-16 bg-white dark:bg-bg-dark dark:border-brdr-dark h-14">
-  <div class="flex justify-between items-center h-full ps-6">
+<nav
+  class="border-b dark:border-brdr-dark bg-white dark:bg-bg-dark lg:h-14 h-12"
+>
+  <div class="flex justify-between items-center h-full ps-4 lg:ps-6 xl:ps-8">
     <!-- Left Section -->
-    <h1 class="text-header-l font-bold dark:text-text-dark">Dashboard</h1>
-
-
-    <div class="flex items-center space-x-4">    <!-- Right Section -->
+    <h1 class="text-lg lg:text-xl xl:text-2xl font-bold dark:text-text-dark">
+      Dashboard
+    </h1>
+    <div class="flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
+      <!-- Right Section -->
       <!-- Country Dropdown -->
-
-      <div class="relative w-40" [appClickOutside]="closeDropdown.bind(this)">
+      <div
+        class="relative w-auto md:w-36 lg:w-44"
+        [appClickOutside]="closeDropdown.bind(this)"
+      >
         <!-- Custom Dropdown Button -->
-        <div (click)="isOpen = !isOpen" class="block w-full rounded-full px-3 py-2 text-sm text-[#010715]
-           dark:text-gray-400 space-x-2 dark:border-0 bg-[#F0F2F4] dark:bg-[#212529] font-medium transition duration-75 border pr-8 cursor-pointer">
+        <div
+          (click)="isOpen = !isOpen"
+          class="block w-full rounded-full px-3 py-2 text-sm text-[#010715] dark:text-gray-400 space-x-2 dark:border-0 bg-[#F0F2F4] dark:bg-[#212529] font-medium transition duration-75 border pr-8 cursor-pointer"
+        >
           <div class="flex items-center">
-            <img [src]="selectedCountry.flag" [alt]="selectedCountry.name + '_flag'" class="w-5 h-5 rounded-full mr-2" />
+            <img
+              [src]="selectedCountry.flag"
+              [alt]="selectedCountry.name + '_flag'"
+              class="w-5 h-5 rounded-full mr-2"
+            />
             {{ selectedCountry.name }}
           </div>
         </div>
-
         <!-- Dropdown options (visible when isOpen is true) -->
-        <div *ngIf="isOpen" class="absolute left-0 right-0 z-[1000] mt-1 dark:border-0 bg-white dark:text-gray-400 dark:bg-[#212529] text-[#010715] border rounded-lg shadow-lg text-sm">
-          <ng-container  *ngFor="let country of countries">
-            <div *ngIf="country.name !== selectedCountry.name" (click)="selectCountry(country)" class="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-100">
-              <img [src]="country.flag" [alt]="country.name + '_flag'" class="w-5 h-5 rounded-full mr-2" />
+        <div
+          *ngIf="isOpen"
+          class="absolute left-0 right-0 z-[1000] mt-1 dark:border-0 bg-white dark:text-gray-400 dark:bg-[#212529] text-[#010715] border rounded-lg shadow-lg text-sm"
+        >
+          <ng-container *ngFor="let country of countries">
+            <div
+              *ngIf="country.name !== selectedCountry.name"
+              (click)="selectCountry(country)"
+              class="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-100"
+            >
+              <img
+                [src]="country.flag"
+                [alt]="country.name + '_flag'"
+                class="w-5 h-5 rounded-full mr-2"
+              />
               {{ country.name }}
             </div>
           </ng-container>
         </div>
-
         <!-- Dropdown arrow icon -->
-        <div class="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+        <div
+          class="absolute inset-y-0 right-3 flex items-center pointer-events-none"
+        >
           <i class="fa-solid fa-angle-down text-gray-600"></i>
         </div>
       </div>
-
-
       <!-- Profile Icon -->
-      <div class="flex items-center justify-center w-24 h-14 border-s-[1px] border-black-16 dark:border-brdr-dark">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="15.999" cy="16" r="16" fill="#FF9E2B"/>
-          <path d="M10.1015 10.5843C9.78141 10.9044 9.60156 11.3386 9.60156 11.7914C9.60156 12.2441 9.78141 12.6783 10.1015 12.9984C10.4217 13.3185 10.8558 13.4984 11.3086 13.4984C11.7613 13.4984 12.1955 13.3185 12.5156 12.9984C12.8357 12.6783 13.0156 12.2441 13.0156 11.7914C13.0156 11.3386 12.8357 10.9044 12.5156 10.5843C12.1955 10.2642 11.7613 10.0844 11.3086 10.0844C10.8558 10.0844 10.4217 10.2642 10.1015 10.5843Z" fill="white"/>
-          <path d="M21.0507 10.5843C20.7305 10.2642 20.2963 10.0844 19.8436 10.0844C19.3909 10.0844 18.9567 10.2642 18.6366 10.5843C18.3165 10.9044 18.1366 11.3386 18.1366 11.7914C18.1366 12.2441 18.3165 12.6783 18.6366 12.9984C18.9567 13.3185 19.3909 13.4984 19.8436 13.4984C20.2963 13.4984 20.7305 13.3185 21.0507 12.9984C21.3708 12.6783 21.5506 12.2441 21.5506 11.7914C21.5506 11.3386 21.3708 10.9044 21.0507 10.5843Z" fill="white"/>
-          <path d="M15.9959 19.3627C14.0115 19.3627 12.6246 18.4292 11.8137 17.5544H11.8244C11.3443 17.0316 10.5388 16.9996 10.016 17.4797C9.49327 17.9598 9.46126 18.7706 9.94136 19.2881C11.1096 20.563 13.142 21.9232 16.0012 21.9232C18.8605 21.9232 20.8876 20.5576 22.0611 19.2881C22.5412 18.7706 22.5039 17.9598 21.9864 17.4797C21.469 16.9996 20.6582 17.0369 20.1781 17.5544C19.3673 18.4292 17.9803 19.3627 15.9959 19.3627Z" fill="white"/>
+      <div
+        class="flex items-center justify-center w-16 md:w-20 lg:w-30 lg:h-14 h-12 border-s border-black-16 dark:border-brdr-dark"
+      >
+        <svg
+          class="w-7 h-auto"
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="15.999" cy="16" r="16" fill="#FF9E2B" />
+          <path
+            d="M10.1015 10.5843C9.78141 10.9044 9.60156 11.3386 9.60156 11.7914C9.60156 12.2441 9.78141 12.6783 10.1015 12.9984C10.4217 13.3185 10.8558 13.4984 11.3086 13.4984C11.7613 13.4984 12.1955 13.3185 12.5156 12.9984C12.8357 12.6783 13.0156 12.2441 13.0156 11.7914C13.0156 11.3386 12.8357 10.9044 12.5156 10.5843C12.1955 10.2642 11.7613 10.0844 11.3086 10.0844C10.8558 10.0844 10.4217 10.2642 10.1015 10.5843Z"
+            fill="white"
+          />
+          <path
+            d="M21.0507 10.5843C20.7305 10.2642 20.2963 10.0844 19.8436 10.0844C19.3909 10.0844 18.9567 10.2642 18.6366 10.5843C18.3165 10.9044 18.1366 11.3386 18.1366 11.7914C18.1366 12.2441 18.3165 12.6783 18.6366 12.9984C18.9567 13.3185 19.3909 13.4984 19.8436 13.4984C20.2963 13.4984 20.7305 13.3185 21.0507 12.9984C21.3708 12.6783 21.5506 12.2441 21.5506 11.7914C21.5506 11.3386 21.3708 10.9044 21.0507 10.5843Z"
+            fill="white"
+          />
+          <path
+            d="M15.9959 19.3627C14.0115 19.3627 12.6246 18.4292 11.8137 17.5544H11.8244C11.3443 17.0316 10.5388 16.9996 10.016 17.4797C9.49327 17.9598 9.46126 18.7706 9.94136 19.2881C11.1096 20.563 13.142 21.9232 16.0012 21.9232C18.8605 21.9232 20.8876 20.5576 22.0611 19.2881C22.5412 18.7706 22.5039 17.9598 21.9864 17.4797C21.469 16.9996 20.6582 17.0369 20.1781 17.5544C19.3673 18.4292 17.9803 19.3627 15.9959 19.3627Z"
+            fill="white"
+          />
         </svg>
       </div>
     </div>

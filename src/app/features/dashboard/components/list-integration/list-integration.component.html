@@ -1,63 +1,57 @@
 <app-card-header-wrapper [title]="'List Integration'">
-  <div class="block w-full overflow-x-auto mb-9" content-body>
+  <div class="block w-full overflow-x-auto mb-3" content-body>
     <table class="min-w-full bg-transparent border-collapse">
       <thead>
-        <tr class="rounded-md bg-blue-8">
-          <th class="px-4 py-3 text-xs font-semibold text-left text-gray-500 dark:text-text-dark capitalize border-l-0 border-r-0 whitespace-nowrap rounded-tl-md">
+        <tr class="rounded-md bg-blue-8 text-black-60 dark:text-white">
+          <th class="px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-semibold text-left border-l-0 border-r-0 whitespace-nowrap rounded-tl-md">
             <input type="checkbox" class="form-checkbox text-blue-600">
           </th>
-          <th class="px-4 py-3 text-sm font-semibold text-left text-gray-500 dark:text-text-dark capitalize border-l-0 border-r-0 whitespace-nowrap">
+          <th class="px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-semibold text-left capitalize border-l-0 border-r-0 whitespace-nowrap">
             Application
           </th>
-          <th class="px-4 py-3 text-sm font-semibold text-left text-gray-500 dark:text-text-dark capitalize border-l-0 border-r-0 whitespace-nowrap">
+          <th class="px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-semibold text-left capitalize border-l-0 border-r-0 whitespace-nowrap">
             Type
           </th>
-          <th class="px-4 py-3 text-sm font-semibold text-left text-gray-500 dark:text-text-dark capitalize border-l-0 border-r-0 whitespace-nowrap">
+          <th class="px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-semibold text-left capitalize border-l-0 border-r-0 whitespace-nowrap">
             Rate
           </th>
-          <th class="px-4 py-3 text-xs font-semibold text-left text-gray-500 dark:text-text-dark capitalize border-l-0 border-r-0 whitespace-nowrap rounded-tr-md">
+          <th class="px-3 sm:px-4 py-2 sm:py-3 text-xs sm:text-sm font-semibold text-left capitalize border-l-0 border-r-0 whitespace-nowrap rounded-tr-md">
             Profit
           </th>
         </tr>
       </thead>
-      <tbody class="divide-y divide-gray-100">
-        <tr class="text-gray-500" *ngFor="let item of tableData">
-          <td class="border-t-0 px-4 py-3 align-middle text-sm whitespace-nowrap">
-            <input type="checkbox" class="form-checkbox text-blue-600">
+      <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+        <tr class="text-gray-600 dark:text-gray-300" *ngFor="let item of tableData">
+          <td class="border-t px-3 sm:px-4 py-2 sm:py-3 align-middle text-xs sm:text-sm whitespace-nowrap">
+            <input type="checkbox" class="form-checkbox text-blue-60">
           </td>
-          <td class="border-t-0 px-4 py-3 align-middle text-sm text-left whitespace-nowrap">
-            <div class="flex justify-start">
+          <td class="border-t px-3 sm:px-4 py-2 sm:py-3 align-middle text-xs sm:text-sm whitespace-nowrap">
+            <div class="flex items-center">
               <svg width="28" height="29" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="0.5" y="1" width="27" height="27" rx="1.5" stroke="black" stroke-opacity="0.16"/>
-              <g clip-path="url(#clip0_1_230)">
-              <path d="M6.5 4.5C5.83696 4.5 5.20107 4.76339 4.73223 5.23223C4.26339 5.70107 4 6.33696 4 7L4 22C4 22.663 4.26339 23.2989 4.73223 23.7678C5.20107 24.2366 5.83696 24.5 6.5 24.5H21.5C22.163 24.5 22.7989 24.2366 23.2678 23.7678C23.7366 23.2989 24 22.663 24 22V7C24 6.33696 23.7366 5.70107 23.2678 5.23223C22.7989 4.76339 22.163 4.5 21.5 4.5H6.5ZM14.2825 11.2313C13.5525 11.2313 13.1112 11.4362 13.1112 11.9725C13.1112 12.5575 13.87 12.815 14.8112 13.135C16.3462 13.6537 18.3663 14.3387 18.375 16.8762C18.375 19.335 16.405 20.75 13.5375 20.75C12.2439 20.7446 10.9647 20.4784 9.77625 19.9675V16.6975C10.9337 17.33 12.395 17.7975 13.5387 17.7975C14.31 17.7975 14.8612 17.5913 14.8612 16.9587C14.8612 16.3112 14.0387 16.015 13.045 15.6575C11.5325 15.1125 9.625 14.425 9.625 12.1375C9.625 9.70625 11.485 8.25 14.2825 8.25C15.4516 8.23954 16.6118 8.45384 17.7 8.88125V12.11C16.6525 11.5475 15.33 11.2313 14.2825 11.2313Z" fill="#696FFB"/>
-              </g>
-              <defs>
-              <clipPath id="clip0_1_230">
-              <rect width="20" height="20" fill="white" transform="translate(4 4.5)"/>
-              </clipPath>
-              </defs>
+                <rect x="0.5" y="1" width="27" height="27" rx="1.5" stroke="black" stroke-opacity="0.16"/>
+                <g clip-path="url(#clip0_1_230)">
+                  <path d="M6.5 4.5C5.83696 4.5 5.20107 4.76339 4.73223 5.23223C4.26339 5.70107 4 6.33696 4 7V22C4 22.663 4.26339 23.2989 4.73223 23.7678C5.20107 24.2366 5.83696 24.5 6.5 24.5H21.5C22.163 24.5 22.7989 24.2366 23.2678 23.7678C23.7366 23.2989 24 22.663 24 22V7C24 6.33696 23.7366 5.70107 23.2678 5.23223C22.7989 4.76339 22.163 4.5 21.5 4.5H6.5ZM14.2825 11.2313C13.5525 11.2313 13.1112 11.4362 13.1112 11.9725C13.1112 12.5575 13.87 12.815 14.8112 13.135C16.3462 13.6537 18.3663 14.3387 18.375 16.8762C18.375 19.335 16.405 20.75 13.5375 20.75C12.2439 20.7446 10.9647 20.4784 9.77625 19.9675V16.6975C10.9337 17.33 12.395 17.7975 13.5387 17.7975C14.31 17.7975 14.8612 17.5913 14.8612 16.9587C14.8612 16.3112 14.0387 16.015 13.045 15.6575C11.5325 15.1125 9.625 14.425 9.625 12.1375C9.625 9.70625 11.485 8.25 14.2825 8.25C15.4516 8.23954 16.6118 8.45384 17.7 8.88125V12.11C16.6525 11.5475 15.33 11.2313 14.2825 11.2313Z" fill="#696FFB"/>
+                </g>
               </svg>
               <div class="ps-3">
                 {{ item.application.name }}
               </div>
-              </div>
-
-          </td>
-          <td class="border-t-0 px-4 py-3 align-middle text-sm text-left whitespace-nowrap">
-            {{ item.type }}
-          </td>
-          <td class="border-t-0 px-4 py-3 align-middle text-xs text-left whitespace-nowrap">
-            <div class="flex items-center">
-              <div class="relative w-full">
-                <div class="w-full bg-blue-12 rounded-sm h-2">
-                  <div class="bg-blue h-2 rounded-sm" [style.width]="item.rate + '%'"></div>
-                </div>
-              </div>
-              <span class="ml-2 text-xs font-medium text-gray-600">{{ item.rate }}%</span>
             </div>
           </td>
-          <td class="border-t-0 px-4 py-3 align-middle text-xs font-medium text-gray-600  text-left whitespace-nowrap">
+          <td class="border-t px-3 sm:px-4 py-2 sm:py-3 align-middle text-xs sm:text-sm whitespace-nowrap">
+            {{ item.type }}
+          </td>
+          <td class="border-t px-3 sm:px-4 py-2 sm:py-3 align-middle text-xs sm:text-sm whitespace-nowrap">
+            <div class="flex items-center">
+              <div class="relative w-full">
+                <div class="w-full bg-gray-300 rounded-sm h-2">
+                  <div class="bg-blue-60 h-2 rounded-sm" [style.width]="item.rate + '%'"></div>
+                </div>
+              </div>
+              <span class="ml-2 text-xs sm:text-sm font-medium text-gray-700">{{ item.rate }}%</span>
+            </div>
+          </td>
+          <td class="border-t px-3 sm:px-4 py-2 sm:py-3 align-middle text-xs sm:text-sm font-medium text-gray-700 whitespace-nowrap">
             {{ item.profit | currency: CURR :'symbol':'1.0-2' }}
           </td>
         </tr>

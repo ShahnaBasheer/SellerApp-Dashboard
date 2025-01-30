@@ -24,11 +24,6 @@ export const selectSalesByRegion = createSelector(
   (state: DashboardState) => state.dashboardData?.salesByRegion
 );
 
-export const selectLoading = createSelector(
-  selectDashboardState,
-  (state: DashboardState) => state.loading
-);
-
 export const selectError = createSelector(
   selectDashboardState,
   (state: DashboardState) => state.error

@@ -32,11 +32,8 @@ export class DashboardComponent implements OnInit{
 
      this.store.select(selectedCountry).subscribe((data: string) => {
       this.CURR = Currency[data.toUpperCase() as keyof typeof Currency];
-      console.log(this.CURR);
       this.store.dispatch(loadDashboardData({ country: data  }))
-
     })
-
   }
 
 }

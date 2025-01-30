@@ -2,8 +2,17 @@
 
 <app-card-header-wrapper [title]="'Sales by Region'">
 
-  <div class="w-full max-h-[215px] h-auto" content-body *ngIf="isChartLoaded">
-    <canvas baseChart #salesByRegionChart class="mx-auto h-full cursor-pointer" id="sales-by-region"></canvas>
+  <!-- Chart Container -->
+  <div class="w-full h-auto max-h-[215px]
+      overflow-hidden flex justify-center items-center" content-body *ngIf="isChartLoaded">
+    <canvas
+      baseChart
+      #salesByRegionChart
+      id="sales-by-region"
+      class="w-full max-w-[95%] sm:max-w-[90%] md:max-w-[85%] h-full cursor-pointer"
+    ></canvas>
   </div>
-
 </app-card-header-wrapper>
+
+
+

@@ -10,17 +10,14 @@ import * as DashboardActions  from './dashboard.actions'
 export const dashboardReducer = createReducer(
   initialState,
   on(DashboardActions.loadDashboardData, (state) => ({
-    ...state,
-    loading: true
+    ...state
   })),
   on(DashboardActions.loadDashboardDataSuccess, (state, { data }) => ({
     ...state,
-    loading: false,
     dashboardData: data
   })),
   on(DashboardActions.loadDashboardDataFailure, (state, { error }) => ({
     ...state,
-    loading: false,
     error
   }))
 );
